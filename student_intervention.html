@@ -11853,14 +11853,15 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO： 计算学生的数量</span>
 <span class="n">n_students</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="p">)</span>
 
 <span class="c1"># TODO： 计算特征数量</span>
-<span class="n">n_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">student_data</span><span class="p">))</span>
+<span class="c1"># 根据review的建议，减去特征中的label列</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">student_data</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
 
 <span class="c1"># TODO： 计算通过的学生数</span>
 <span class="n">n_passed</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;yes&#39;</span><span class="p">])</span>
@@ -11890,7 +11891,7 @@ div#notebook {
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total number of students: 395
-Number of features: 31
+Number of features: 30
 Number of students who passed: 265
 Number of students who failed: 130
 Graduation rate of the class: 67.09%
@@ -12276,7 +12277,7 @@ Testing set has 95 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO：从sklearn中引入三个监督学习模型</span>
@@ -12285,9 +12286,10 @@ Testing set has 95 samples.
 <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
 
 <span class="c1"># TODO：初始化三个模型</span>
+<span class="c1"># GaussianNB 不支持random_state 参数</span>
 <span class="n">clf_A</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
-<span class="n">clf_B</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">()</span>
-<span class="n">clf_C</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">()</span>
+<span class="n">clf_B</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">clf_C</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># TODO：设置训练集大小</span>
 <span class="n">X_train_100</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
@@ -12330,66 +12332,66 @@ Testing set has 95 samples.
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training a GaussianNB using a training set size of 100. . .
-Trained model in 0.0028 seconds
-Made predictions in 0.0010 seconds.
-F1 score for training set: 0.5895.
+Trained model in 0.0021 seconds
 Made predictions in 0.0008 seconds.
+F1 score for training set: 0.5895.
+Made predictions in 0.0007 seconds.
 F1 score for test set: 0.4948.
 ----------------------------------------
 Training a GaussianNB using a training set size of 200. . .
-Trained model in 0.0012 seconds
-Made predictions in 0.0010 seconds.
+Trained model in 0.0019 seconds
+Made predictions in 0.0012 seconds.
 F1 score for training set: 0.7969.
 Made predictions in 0.0007 seconds.
 F1 score for test set: 0.6992.
 ----------------------------------------
 Training a GaussianNB using a training set size of 300. . .
-Trained model in 0.0020 seconds
-Made predictions in 0.0015 seconds.
+Trained model in 0.0043 seconds
+Made predictions in 0.0016 seconds.
 F1 score for training set: 0.7990.
-Made predictions in 0.0007 seconds.
+Made predictions in 0.0019 seconds.
 F1 score for test set: 0.7031.
 --------------------------------------------------------------------------------
 Training a DecisionTreeClassifier using a training set size of 100. . .
-Trained model in 0.0019 seconds
-Made predictions in 0.0040 seconds.
-F1 score for training set: 1.0000.
+Trained model in 0.0023 seconds
 Made predictions in 0.0006 seconds.
-F1 score for test set: 0.7402.
+F1 score for training set: 0.9851.
+Made predictions in 0.0009 seconds.
+F1 score for test set: 0.7692.
 ----------------------------------------
 Training a DecisionTreeClassifier using a training set size of 200. . .
-Trained model in 0.0025 seconds
-Made predictions in 0.0005 seconds.
-F1 score for training set: 1.0000.
-Made predictions in 0.0003 seconds.
-F1 score for test set: 0.7742.
+Trained model in 0.0015 seconds
+Made predictions in 0.0009 seconds.
+F1 score for training set: 0.9333.
+Made predictions in 0.0004 seconds.
+F1 score for test set: 0.7480.
 ----------------------------------------
 Training a DecisionTreeClassifier using a training set size of 300. . .
-Trained model in 0.0029 seconds
-Made predictions in 0.0005 seconds.
-F1 score for training set: 1.0000.
-Made predictions in 0.0005 seconds.
-F1 score for test set: 0.8500.
+Trained model in 0.0019 seconds
+Made predictions in 0.0008 seconds.
+F1 score for training set: 0.9300.
+Made predictions in 0.0003 seconds.
+F1 score for test set: 0.8333.
 --------------------------------------------------------------------------------
 Training a SVC using a training set size of 100. . .
-Trained model in 0.0017 seconds
-Made predictions in 0.0018 seconds.
+Trained model in 0.0022 seconds
+Made predictions in 0.0011 seconds.
 F1 score for training set: 0.8767.
-Made predictions in 0.0015 seconds.
+Made predictions in 0.0011 seconds.
 F1 score for test set: 0.8194.
 ----------------------------------------
 Training a SVC using a training set size of 200. . .
-Trained model in 0.0046 seconds
-Made predictions in 0.0030 seconds.
+Trained model in 0.0064 seconds
+Made predictions in 0.0029 seconds.
 F1 score for training set: 0.8986.
-Made predictions in 0.0013 seconds.
+Made predictions in 0.0015 seconds.
 F1 score for test set: 0.8406.
 ----------------------------------------
 Training a SVC using a training set size of 300. . .
-Trained model in 0.0067 seconds
-Made predictions in 0.0046 seconds.
+Trained model in 0.0084 seconds
+Made predictions in 0.0050 seconds.
 F1 score for training set: 0.9122.
-Made predictions in 0.0023 seconds.
+Made predictions in 0.0017 seconds.
 F1 score for test set: 0.8571.
 </pre>
 </div>
@@ -12569,7 +12571,7 @@ F1 score for test set: 0.8571.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>回答: </strong>决策树模型是根据学生信息的关键程度（影响学生是否通过）从强到弱依次对学生进行分类，最终得出学生是否通过的算法。举例来说，假设学生的<strong>学习时间</strong>这个信息比较关键，那我们将每天学习2个小时作为标准，将学生分为两类，一类是学习时间&gt;2小时，另一类是&lt; 2小时；那么前者倾向于学生通过，后者倾向于不通过，然后对两类学生继续用其次关键的信息持续分类，每次分类都将学生分为<strong>倾向于通过</strong>和<strong>倾向于失败</strong>的两类，最终将所有信息都使用后得出一个相对准确的是否通过的结论。</p>
+<p><strong>回答: </strong>决策树模型是根据学生信息的关键程度（影响学生是否通过）从强到弱依次对学生进行分类，最终得出学生是否通过的算法。举例来说，假设学生的<strong>学习时间</strong>这个信息比较关键，那我们将每天学习2个小时作为标准，将学生分为两类，一类是学习时间&gt;2小时，另一类是&lt; 2小时；那么前者倾向于学生通过，后者倾向于不通过，然后对两类学生继续用其次关键的信息持续分类，每次分类都将学生分为<strong>倾向于通过</strong>和<strong>倾向于失败</strong>的两类，最终将所有信息都使用后得出一个相对准确的是否通过的结论。<strong>关键信息</strong>是指那些有决定性的信息，例如，在确定了<strong>学习时间</strong>的阈值之后，将学生分为两类，<strong>学习时间较长</strong>的那类学生中通过的数量会显著多于<strong>学习时间较短</strong>的那类学生；如果按照<strong>身高</strong>将学生分为两类，身高较高的那类学生中通过的数量就不会呈现明显的多于身高较矮的那类学生。上例说明，<strong>学习时间</strong>比<strong>身高</strong>更有助于将学生分为<strong>通过</strong>和<strong>失败</strong>两类，说明在预测学生成绩这个结果时，<strong>学习时间</strong>比<strong>身高</strong>更有用。</p>
 
 </div>
 </div>
@@ -12600,7 +12602,7 @@ F1 score for test set: 0.8571.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: 导入 &#39;GridSearchCV&#39; 和 &#39;make_scorer&#39;</span>
@@ -12643,10 +12645,10 @@ F1 score for test set: 0.8571.
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Made predictions in 0.0004 seconds.
-Tuned model has a training F1 score of 1.0000.
-Made predictions in 0.0003 seconds.
-Tuned model has a testing F1 score of 0.8943.
+<pre>Made predictions in 0.0002 seconds.
+Tuned model has a training F1 score of 0.9261.
+Made predictions in 0.0002 seconds.
+Tuned model has a testing F1 score of 0.8438.
 </pre>
 </div>
 </div>
