@@ -12277,7 +12277,7 @@ Testing set has 95 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO：从sklearn中引入三个监督学习模型</span>
@@ -12288,7 +12288,7 @@ Testing set has 95 samples.
 <span class="c1"># TODO：初始化三个模型</span>
 <span class="c1"># GaussianNB 不支持random_state 参数</span>
 <span class="n">clf_A</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
-<span class="n">clf_B</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">clf_B</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">clf_C</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># TODO：设置训练集大小</span>
@@ -12332,64 +12332,64 @@ Testing set has 95 samples.
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training a GaussianNB using a training set size of 100. . .
-Trained model in 0.0021 seconds
-Made predictions in 0.0008 seconds.
+Trained model in 0.0474 seconds
+Made predictions in 0.0029 seconds.
 F1 score for training set: 0.5895.
-Made predictions in 0.0007 seconds.
+Made predictions in 0.0008 seconds.
 F1 score for test set: 0.4948.
 ----------------------------------------
 Training a GaussianNB using a training set size of 200. . .
-Trained model in 0.0019 seconds
-Made predictions in 0.0012 seconds.
+Trained model in 0.0064 seconds
+Made predictions in 0.0013 seconds.
 F1 score for training set: 0.7969.
-Made predictions in 0.0007 seconds.
+Made predictions in 0.0008 seconds.
 F1 score for test set: 0.6992.
 ----------------------------------------
 Training a GaussianNB using a training set size of 300. . .
-Trained model in 0.0043 seconds
-Made predictions in 0.0016 seconds.
+Trained model in 0.0026 seconds
+Made predictions in 0.0027 seconds.
 F1 score for training set: 0.7990.
-Made predictions in 0.0019 seconds.
+Made predictions in 0.0008 seconds.
 F1 score for test set: 0.7031.
 --------------------------------------------------------------------------------
 Training a DecisionTreeClassifier using a training set size of 100. . .
-Trained model in 0.0023 seconds
-Made predictions in 0.0006 seconds.
-F1 score for training set: 0.9851.
-Made predictions in 0.0009 seconds.
-F1 score for test set: 0.7692.
+Trained model in 0.0391 seconds
+Made predictions in 0.0011 seconds.
+F1 score for training set: 1.0000.
+Made predictions in 0.0007 seconds.
+F1 score for test set: 0.7317.
 ----------------------------------------
 Training a DecisionTreeClassifier using a training set size of 200. . .
-Trained model in 0.0015 seconds
-Made predictions in 0.0009 seconds.
-F1 score for training set: 0.9333.
-Made predictions in 0.0004 seconds.
-F1 score for test set: 0.7480.
+Trained model in 0.0014 seconds
+Made predictions in 0.0002 seconds.
+F1 score for training set: 1.0000.
+Made predictions in 0.0003 seconds.
+F1 score for test set: 0.7874.
 ----------------------------------------
 Training a DecisionTreeClassifier using a training set size of 300. . .
-Trained model in 0.0019 seconds
-Made predictions in 0.0008 seconds.
-F1 score for training set: 0.9300.
-Made predictions in 0.0003 seconds.
-F1 score for test set: 0.8333.
+Trained model in 0.0017 seconds
+Made predictions in 0.0002 seconds.
+F1 score for training set: 1.0000.
+Made predictions in 0.0002 seconds.
+F1 score for test set: 0.8571.
 --------------------------------------------------------------------------------
 Training a SVC using a training set size of 100. . .
-Trained model in 0.0022 seconds
-Made predictions in 0.0011 seconds.
+Trained model in 0.0059 seconds
+Made predictions in 0.0010 seconds.
 F1 score for training set: 0.8767.
 Made predictions in 0.0011 seconds.
 F1 score for test set: 0.8194.
 ----------------------------------------
 Training a SVC using a training set size of 200. . .
-Trained model in 0.0064 seconds
-Made predictions in 0.0029 seconds.
+Trained model in 0.0034 seconds
+Made predictions in 0.0024 seconds.
 F1 score for training set: 0.8986.
-Made predictions in 0.0015 seconds.
+Made predictions in 0.0030 seconds.
 F1 score for test set: 0.8406.
 ----------------------------------------
 Training a SVC using a training set size of 300. . .
-Trained model in 0.0084 seconds
-Made predictions in 0.0050 seconds.
+Trained model in 0.0087 seconds
+Made predictions in 0.0056 seconds.
 F1 score for training set: 0.9122.
 Made predictions in 0.0017 seconds.
 F1 score for test set: 0.8571.
@@ -12602,7 +12602,7 @@ F1 score for test set: 0.8571.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: 导入 &#39;GridSearchCV&#39; 和 &#39;make_scorer&#39;</span>
@@ -12610,7 +12610,9 @@ F1 score for test set: 0.8571.
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">make_scorer</span>
 
 <span class="c1"># TODO：创建你希望调整的参数列表</span>
-<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;criterion&#39;</span><span class="p">:[</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span><span class="s1">&#39;entropy&#39;</span><span class="p">]}</span>
+<span class="c1"># 按照Review给的建议，添加了max_depth和max_leaf_nodes参数列表，训练后，过拟合现象有了改善（训练集的F1已经不是恒定的1），但是测试集的</span>
+<span class="c1"># F1略有下降，这样的『参数调优』可以理解为这个模型的泛化性能变强了，因为消除了过拟合</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;criterion&#39;</span><span class="p">:[</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span><span class="s1">&#39;entropy&#39;</span><span class="p">],</span> <span class="s1">&#39;max_depth&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="s1">&#39;max_leaf_nodes&#39;</span><span class="p">:[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]}</span>
 
 <span class="c1"># TODO：初始化分类器</span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">DecisionTreeClassifier</span><span class="p">()</span>
@@ -12645,10 +12647,10 @@ F1 score for test set: 0.8571.
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Made predictions in 0.0002 seconds.
-Tuned model has a training F1 score of 0.9261.
+<pre>Made predictions in 0.0003 seconds.
+Tuned model has a training F1 score of 0.8657.
 Made predictions in 0.0002 seconds.
-Tuned model has a testing F1 score of 0.8438.
+Tuned model has a testing F1 score of 0.8175.
 </pre>
 </div>
 </div>
@@ -12672,7 +12674,7 @@ Tuned model has a testing F1 score of 0.8438.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>回答: </strong>最终模型的训练F1为1.0000，测试F1为0.8780，相较于没有调整过参数的模型有小幅度提升。但是在多次训练后发现，有时测试F1高于原来，有时则略小于原来的F1。</p>
+<p><strong>回答: </strong>最终模型的训练F1为0.8657，测试F1为0.8175，相较于没有调整过参数的模型有小幅度<strong>下降</strong>，但是消除了过拟合。</p>
 
 </div>
 </div>
